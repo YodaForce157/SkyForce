@@ -30,7 +30,7 @@ jobs:
           
           delimiter="$(openssl rand -hex 8)"
           {
-            echo "changelog<<${delimiter}
+            echo "changelog<<${delimiter}"
             echo "$CHANGELOG"
             echo "${delimiter}"
           } >> $GITHUB_OUTPUT
