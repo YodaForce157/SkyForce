@@ -1,0 +1,29 @@
+name: Release
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Java
+        uses: action/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Build to jar
+        run: gradle build
+
+      - name: Create release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/libs/SkyForce-*.jar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

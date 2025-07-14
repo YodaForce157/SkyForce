@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "skyforce",
+  "version": "${version}",
+  "name": "SkyForce",
+  "description": "A lightweight Hypixel Skyblock mod with various features.",
+  "authors": ["YodaForce157"],
+  "contact": {
+    "homepage": "https://discord.gg/3pqqseAqgR",
+    "sources": ""
+  },
+  "license": "GNU GPLv3",
+  "icon": "assets/skyforce/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "dev.yodaforce.skyforce.SkyForce"
+    ],
+    "modmenu": [
+      "dev.yodaforce.skyforce.compat.SkyForceModMenuApiImpl"
+    ]
+  },
+  "mixins": [
+    "skyforce.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "1.21.5"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/3pqqseAqgR"
+      }
+    }
+  }
+}
